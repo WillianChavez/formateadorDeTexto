@@ -2,6 +2,7 @@ import Header from './components/header/index.jsx'
 import { useState, useRef } from 'react'
 import './App.css'
 import copy from './../copy.svg'
+import trash from './../trash.svg'
 
 function App() {
     const [textoFormateado, setTextoFormateado] = useState('')
@@ -35,15 +36,28 @@ function App() {
             elMessage.current.classList.remove('show-message')
         }, 3000)
     }
+
+    const handleTrash = () => {
+        setTextoFormateado('')
+    }
+
     return (
         <div>
             <Header />
             <main className="main">
-                <span className="btn" onClick={handleCopy}>
-                    Copiar texto
-                    <img src={copy} alt="" className="copyImg" />
-                    <span className="message" ref={elMessage}></span>
-                </span>
+                <div className="actions">
+                    <span className="btn" onClick={handleCopy}>
+                        Copiar texto
+                        <img src={copy} alt="" className="copyImg" />
+                        <span className="message" ref={elMessage}></span>
+                    </span>
+
+                    <span className="btn" onClick={handleTrash}>
+                        Borrar texto
+                        <img src={trash} alt="" className="copyImg trash" />
+                        <span className="message" ref={elMessage}></span>
+                    </span>
+                </div>
                 <textarea
                     className="input-text-area"
                     onChange={(e) => setTextoFormateado(e.target.value)}
