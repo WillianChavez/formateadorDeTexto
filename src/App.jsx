@@ -75,10 +75,10 @@ function App() {
                         Eliminar puntos ( . )
                     </li>
                     <li className="option-item" onClick={convertirMayusculas}>
-                        Convertir a mayúsculas
+                        TODO MAYÚSCULAS
                     </li>
                     <li className="option-item" onClick={convertirMinusculas}>
-                        Convertir a minúsculas
+                        todo minúsculas
                     </li>
                 </ul>
             </main>

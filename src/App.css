@@ -27,7 +27,6 @@
 .options{
   list-style: none;
   display: flex;
-  margin: 3em 0;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -36,19 +35,19 @@
 
 .option-item{
 
-  margin: 1em 0.5em;
-  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  margin: 0.3em 0.3em;
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
   flex-grow: 1;
   background-color: var(--clr-ocean-blue);
-  padding: 1em .5em;
+  padding: .5em .5em;
   color:var(--clr-white);
   display: flex;
   border-radius: 20px;
   max-width: 300px;
   flex-basis: 200px;
   transition: all .2s ease-in-out;
-
   justify-content: space-evenly;
+
 }
 
 @media(hover: hover){
@@ -70,9 +69,8 @@
   align-items: center;
   margin-bottom: 1em;
   position: relative;
-
-
   cursor: pointer;
+  margin: 0 .3em;
 }
 
 .copyImg{
@@ -88,8 +86,8 @@
 
 .actions{
   display: flex;
-  gap: 2em;
   flex-wrap: wrap;
+
 }
 
 .message{
