@@ -1,0 +1,7 @@
+
+.title--1{
+    text-align: center;
+    text-transform: capitalize;
+    font-size: calc(1.3rem + 1vw);
+    color: var(--clr-ocean-blue);
+}
