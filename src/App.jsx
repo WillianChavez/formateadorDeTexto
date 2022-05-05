@@ -10,14 +10,17 @@ function App() {
     const elTextoFomateado = useRef(null)
 
     const removerComas = () => {
-        setTextoFormateado(textoFormateado.replace(/,/g, ''))
-        setTextoFormateado(textoFormateado.replace(/\;/g, ''))
+        let text = textoFormateado.replace(/,/g, '')
+        setTextoFormateado(text.replace(/;/g, ''))
     }
 
     const removerPuntos = () => {
-        setTextoFormateado(textoFormateado.replace(/\./g, ''))
-        // quitar dos puntos :
-        setTextoFormateado(textoFormateado.replace(/\:/g, ''))
+        let text = textoFormateado.replace(/\./g, '')
+        setTextoFormateado(text.replace(/:/g, ''))
+    }
+
+    const removerDosPuntos = () => {
+        setTextoFormateado(textoFormateado.replace(/:/g, ''))
     }
 
     const convertirMayusculas = () => {
@@ -29,10 +32,14 @@ function App() {
     }
 
     const removerTodo = () => {
-        removerComas()
-        removerPuntos()
-        removerNumeros()
-        convertirMinusculas()
+        let text = textoFormateado.replace(/\./g, '')
+        text = text.replace(/:/g, '')
+        text = text.replace(/,/g, '')
+        text = text.replace(/;/g, '')
+        text = text.replace(/\d/g, '')
+        // remover espacios al principio y final
+        text = text.replace(/^\s+|\s+$/g, '')
+        setTextoFormateado(text)
     }
 
     const removerNumeros = () => {
