@@ -11,10 +11,13 @@ function App() {
 
     const removerComas = () => {
         setTextoFormateado(textoFormateado.replace(/,/g, ''))
+        setTextoFormateado(textoFormateado.replace(/\;/g, ''))
     }
 
     const removerPuntos = () => {
         setTextoFormateado(textoFormateado.replace(/\./g, ''))
+        // quitar dos puntos :
+        setTextoFormateado(textoFormateado.replace(/\:/g, ''))
     }
 
     const convertirMayusculas = () => {
@@ -23,6 +26,17 @@ function App() {
 
     const convertirMinusculas = () => {
         setTextoFormateado(textoFormateado.toLowerCase())
+    }
+
+    const removerTodo = () => {
+        removerComas()
+        removerPuntos()
+        removerNumeros()
+        convertirMinusculas()
+    }
+
+    const removerNumeros = () => {
+        setTextoFormateado(textoFormateado.replace(/\d/g, ''))
     }
 
     const handleCopy = (e) => {
@@ -68,17 +82,24 @@ function App() {
                 ></textarea>
 
                 <ul className="options">
+                    <li className="option-item" onClick={removerTodo}>
+                        Solo texto
+                    </li>
+
                     <li className="option-item" onClick={removerComas}>
-                        Eliminar comas ( , )
+                        Eliminar comas
                     </li>
                     <li className="option-item" onClick={removerPuntos}>
-                        Eliminar puntos ( . )
+                        Eliminar puntos
                     </li>
                     <li className="option-item" onClick={convertirMayusculas}>
                         TODO MAYÚSCULAS
                     </li>
                     <li className="option-item" onClick={convertirMinusculas}>
                         todo minúsculas
+                    </li>
+                    <li className="option-item" onClick={removerNumeros}>
+                        Eliminar numeros
                     </li>
                 </ul>
             </main>
