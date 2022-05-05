@@ -6,6 +6,7 @@ import copy from './../copy.svg'
 function App() {
     const [textoFormateado, setTextoFormateado] = useState('')
     const elMessage = useRef(null)
+    const elTextoFomateado = useRef(null)
 
     const removerComas = () => {
         setTextoFormateado(textoFormateado.replace(/,/g, ''))
@@ -25,8 +26,8 @@ function App() {
 
     const handleCopy = (e) => {
         // copiar texto al portapapeles
-
-        navigator.clipboard.writeText(textoFormateado)
+        elTextoFomateado.current.select()
+        document.execCommand('copy')
 
         elMessage.current.innerHTML = 'Copiado!'
         //agergar una clase al elemento
@@ -50,6 +51,7 @@ function App() {
                     value={textoFormateado}
                     placeholder="Ingrese el texto que desea formatear"
                     rows="10"
+                    ref={elTextoFomateado}
                 ></textarea>
 
                 <ul className="options">
