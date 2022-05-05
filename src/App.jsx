@@ -26,9 +26,8 @@ function App() {
 
     const handleCopy = (e) => {
         // copiar texto al portapapeles
-        elTextoFomateado.current.select()
-        document.execCommand('copy')
 
+        navigator.clipboard.writeText(textoFormateado)
         elMessage.current.innerHTML = 'Copiado!'
         //agergar una clase al elemento
         elMessage.current.classList.add('show-message')
